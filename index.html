@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eee8df">
+  <title>Our Little Memories — Tikki Card</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+Thai:wght@300;400;500&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div><div class="flash" id="flash"></div>
+<button class="sound hidden" id="soundBtn" aria-label="เปิดปิดเสียง"><span id="soundIcon">♪</span><small>SOUND ON</small></button>
+
+<main>
+<section class="scene active intro" id="intro">
+  <div class="glow g1"></div><div class="glow g2"></div>
+  <div class="intro-copy reveal-group">
+    <p class="kicker reveal">OUR LITTLE MEMORIES</p>
+    <h1 class="reveal">มีบางช่วงเวลา</h1>
+    <h1 class="reveal"><i>ที่หนูอยากเก็บไว้</i></h1>
+    <p class="muted reveal">ถ่ายให้ครบ 4 ใบ แล้วค่อยเปิดดูด้วยกันนะ</p>
+  </div>
+  <div class="camera-wrap reveal">
+    <div class="camera">
+      <div class="camera-top"><span class="brand">tikki</span><span class="counter" id="cameraCount">0 / 4</span></div>
+      <div class="lens"><div></div></div><div class="finder"></div><div class="shutter"></div><div class="slot"></div>
+    </div>
+    <button class="start" id="shootBtn">ถ่ายรูปที่ 1</button>
+  </div>
+  <div class="shot-stack" id="shotStack"></div>
+</section>
+
+<section class="scene review" id="review">
+  <div class="review-head"><p class="kicker">4 MEMORIES CAPTURED</p><h2>ทีนี้ค่อย ๆ เปิดดูนะ</h2></div>
+  <div class="paper-stack" id="paperStack"></div>
+  <button class="soft-btn show" id="openMemoryBtn">เปิดรูปแรก</button>
+</section>
+
+<section class="scene memory" id="memory">
+  <p class="memory-index" id="memoryIndex">MEMORY 01 / 04</p>
+  <article class="polaroid viewing" id="polaroid">
+    <div class="photo"><img id="photo" src="1.jpg" alt=""><div class="develop"></div></div>
+    <div class="handwrite" id="photoDate"></div>
+  </article>
+  <div class="caption" id="caption"><p class="line" id="line1"></p><p class="line" id="line2"></p></div>
+  <button class="keep-btn" id="nextBtn">ดูรูปต่อไป</button>
+</section>
+
+<section class="scene table-scene" id="tableScene">
+  <div class="table-light"></div><div class="photo-table" id="photoTable"></div>
+  <div class="days-copy">
+      <strong id="days">—</strong><span>DAYS</span>
+      <div class="live-time" id="liveTime">
+        <div><b id="hours">00</b><small>HOURS</small></div>
+        <i>:</i>
+        <div><b id="minutes">00</b><small>MINUTES</small></div>
+        <i>:</i>
+        <div><b id="seconds">00</b><small>SECONDS</small></div>
+        <i>:</i>
+        <div><b id="milliseconds">000</b><small>MS</small></div>
+      </div>
+      <p>ตั้งแต่วันแรกที่เราเริ่มคุยกัน</p>
+      <button class="days-next-btn" id="daysNextBtn">
+  ไปต่อ
+</button>
+    </div>
+</section>
+
+<section class="scene blackout" id="blackout">
+ <div class="black-copy"><p class="black-line">จริง ๆ แล้ว...</p><p class="black-line">มีอย่างหนึ่ง<br>ที่หนูอยากบอกพี่มาสักพักแล้ว</p>
+ <h2 class="black-line">ความรู้สึกหนู<br>ไม่เหมือนเดิมแล้วอะ</h2><button id="meaningBtn" class="dark-btn">หมายความว่าไง?</button></div>
+</section>
+
+<section class="scene confession" id="confession">
+ <div class="floating-photos" id="floatingPhotos"></div><div class="confession-copy">
+ <p class="conf-line">ตอนแรก<br>หนูแค่รู้สึกดีที่ได้คุยกับพี่</p><p class="conf-line">แล้วก็เริ่มชอบ<br>เวลาที่มีเธออยู่ในแต่ละวัน</p>
+ <p class="conf-line">แต่ยิ่งได้รู้จัก<br>ยิ่งได้ใช้เวลาด้วยกัน...</p><div class="feelings conf-line"><span>ชอบ</span><b>รัก</b></div>
+ <p class="conf-line final-conf">มันไม่เหมือนเดิมแล้วจริง ๆ<br>เพราะตอนนี้หนูรักพี่<br>มากกว่าวันแรกที่รู้จักกันแล้วอะ</p>
+ <button id="toProposal" class="soft-btn">มีอีกอย่างอยากบอก</button></div>
+</section>
+
+<section class="scene proposal" id="proposal"> 
+ <div class="proposal-polaroid"><div class="photo"><img src="4.jpg" alt=""></div><span>my favorite memory.</span></div>
+ <div class="proposal-copy"><p class="prop-line">ที่ผ่านมา<br>ขอบคุณที่เข้ามาเป็นความทรงจำดี ๆ ของหนูนะ</p>
+ <p class="prop-line">แล้วถ้าพี่โอเค...</p><p class="prop-line">ต่อจากนี้<br>หนูขอให้พี่ “มีความสุขมากๆนะ ”</p>
+ <h2 class="prop-line">หนูอยากมีคนที่ดีอยู่ข้างๆ <br>ในทุก ๆ วันต่อจากนี้ด้วย</h2><h1 class="prop-line">พี่เป็นคนที่ดี<br>ให้หนูได้ไหม</h1>
+ <div class="choices prop-line" id="choices"><button class="yes" id="yesBtn">ได้สิ</button><button class="no" id="noBtn">ไม่เอาอะ</button></div>
+ <button class="not-ready hidden" id="notReady">ยังไม่พร้อมใช่ไหม</button></div>
+</section>
+
+<section class="scene wait blackout" id="wait">
+      <div class="wait-copy">
+        <p>ไม่เป็นไรนะ</p><p>ไม่ต้องรีบตอบก็ได้</p>
+        <p>ถ้าวันนี้พี่ยังไม่พร้อม<br>เราก็เข้าใจ</p>
+        <h2>เรารอนะ</h2>
+        <button class="wait-close" id="waitCloseBtn">ปิด</button>
+      </div>
+    </section>
+
+<section class="scene success" id="success"><div class="success-glow"> 
+  <div class="love-rain" id="loveRain"></div>
+<div class="love-burst" id="loveBurst"></div>
+</div><div class="new-polaroid"><div class="photo"><img src="4.jpg" alt=""></div><span>OUR FIRST DAY</span></div>
+<p class="tiny">OFFICIALLY, US.</p><h1>รูปพิเศษ<br><i>ของเรา :)</i></h1><p id="sinceText"></p><div class="ending-actions">
+      <button class="story-btn" id="storyBtn">สร้าง Story Card</button>
+      <button class="close-program-btn" id="closeProgramBtn">ปิดโปรแกรม</button>
+    </div></section>
+
+<section class="scene story" id="story"><div class="story-wrap"><p class="tiny">READY FOR YOUR STORY</p><canvas id="storyCanvas" width="1080" height="1920"></canvas>
+<div class="story-buttons"><button id="shareStory" class="story-btn">แชร์</button><button id="backBtn" class="outline">กลับ</button></div>
+<p class="hint" id="saveHint">Story 1080 × 1920 · เว้นพื้นที่สำหรับ Instagram Link Sticker</p></div></section>
+<section class="scene final-goodbye" id="finalGoodbye">
+      <div class="goodbye-glow"></div>
+      <div class="goodbye-content">
+        <p class="goodbye-small">ONE LAST THING...</p>
+        <h1>ขอบคุณนะ<br><i>ที่เข้ามาเป็นเรื่องราวดี ๆ ของเรา</i></h1>
+        <p class="goodbye-text">จากนี้ไม่รู้ว่าจะมีความทรงจำอีกกี่รูป<br>แต่หวังว่าในทุก ๆ รูปต่อจากนี้<br>จะยังมีเราอยู่ข้างกันนะ</p>
+        <p class="goodbye-love">ขอบคุณนะ :)</p>
+        <span class="goodbye-closing">closing our little story...</span>
+      </div>
+    </section>
+</main>
+
+<audio id="shutterSfx" src="shutter.wav" preload="auto"></audio>
+<audio id="badNewsSfx" src="bad-news.mp3" preload="auto"></audio>
+<audio id="ejectSfx" src="eject.wav" preload="auto"></audio>
+<audio id="bgMusic" preload="auto">
+  <source src="Troye Sivan - Angel Baby (Visualiser).mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
